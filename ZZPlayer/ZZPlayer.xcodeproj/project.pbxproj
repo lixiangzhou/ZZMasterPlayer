@@ -1,0 +1,471 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		9760A21F1EF3CB3F007E3E5F /* VideoToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A21E1EF3CB3F007E3E5F /* VideoToolbox.framework */; };
+		9760A2211EF3CB47007E3E5F /* AudioToolbox.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2201EF3CB47007E3E5F /* AudioToolbox.framework */; };
+		9760A2231EF3CB4D007E3E5F /* CoreMedia.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2221EF3CB4D007E3E5F /* CoreMedia.framework */; };
+		9760A2251EF3CB54007E3E5F /* CoreAudio.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2241EF3CB54007E3E5F /* CoreAudio.framework */; };
+		9760A2271EF3CB5D007E3E5F /* AVFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2261EF3CB5D007E3E5F /* AVFoundation.framework */; };
+		9760A2291EF3CB65007E3E5F /* MediaPlayer.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2281EF3CB65007E3E5F /* MediaPlayer.framework */; };
+		9760A22B1EF3CB6C007E3E5F /* libstdc++.6.0.9.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A22A1EF3CB6C007E3E5F /* libstdc++.6.0.9.tbd */; };
+		9760A22D1EF3CB77007E3E5F /* libiconv.2.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A22C1EF3CB77007E3E5F /* libiconv.2.tbd */; };
+		9760A22F1EF3CB7E007E3E5F /* libc++.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A22E1EF3CB7E007E3E5F /* libc++.1.tbd */; };
+		9760A2311EF3CB87007E3E5F /* libz.1.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2301EF3CB87007E3E5F /* libz.1.tbd */; };
+		9760A2331EF3CB8E007E3E5F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2321EF3CB8E007E3E5F /* libbz2.1.0.tbd */; };
+		9760A2361EF3CE96007E3E5F /* ZZPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9760A2351EF3CE96007E3E5F /* ZZPlayerModel.m */; };
+		9760A23A1EF3E3E9007E3E5F /* zzplayer_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */; };
+		9760A23C1EF76171007E3E5F /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */; };
+		979F6D751EF240F6005A0F68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D741EF240F6005A0F68 /* main.m */; };
+		979F6D781EF240F6005A0F68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D771EF240F6005A0F68 /* AppDelegate.m */; };
+		979F6D7B1EF240F6005A0F68 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D7A1EF240F6005A0F68 /* ViewController.m */; };
+		979F6D7E1EF240F6005A0F68 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979F6D7C1EF240F6005A0F68 /* Main.storyboard */; };
+		979F6D801EF240F6005A0F68 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 979F6D7F1EF240F6005A0F68 /* Assets.xcassets */; };
+		979F6D831EF240F6005A0F68 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 979F6D811EF240F6005A0F68 /* LaunchScreen.storyboard */; };
+		979F6D981EF3B679005A0F68 /* ZZPlayerView.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D971EF3B679005A0F68 /* ZZPlayerView.m */; };
+		B1DFC1284645BE3ECCC2204E /* libPods-ZZPlayer.a in Frameworks */ = {isa = PBXBuildFile; fileRef = FABECA44B2EE0B4BD4696911 /* libPods-ZZPlayer.a */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		043BDDD6F4AF4EBD379ECA8C /* Pods-ZZPlayer.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZZPlayer.debug.xcconfig"; path = "Pods/Target Support Files/Pods-ZZPlayer/Pods-ZZPlayer.debug.xcconfig"; sourceTree = "<group>"; };
+		9760A21E1EF3CB3F007E3E5F /* VideoToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = VideoToolbox.framework; path = System/Library/Frameworks/VideoToolbox.framework; sourceTree = SDKROOT; };
+		9760A2201EF3CB47007E3E5F /* AudioToolbox.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AudioToolbox.framework; path = System/Library/Frameworks/AudioToolbox.framework; sourceTree = SDKROOT; };
+		9760A2221EF3CB4D007E3E5F /* CoreMedia.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreMedia.framework; path = System/Library/Frameworks/CoreMedia.framework; sourceTree = SDKROOT; };
+		9760A2241EF3CB54007E3E5F /* CoreAudio.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreAudio.framework; path = System/Library/Frameworks/CoreAudio.framework; sourceTree = SDKROOT; };
+		9760A2261EF3CB5D007E3E5F /* AVFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AVFoundation.framework; path = System/Library/Frameworks/AVFoundation.framework; sourceTree = SDKROOT; };
+		9760A2281EF3CB65007E3E5F /* MediaPlayer.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MediaPlayer.framework; path = System/Library/Frameworks/MediaPlayer.framework; sourceTree = SDKROOT; };
+		9760A22A1EF3CB6C007E3E5F /* libstdc++.6.0.9.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libstdc++.6.0.9.tbd"; path = "usr/lib/libstdc++.6.0.9.tbd"; sourceTree = SDKROOT; };
+		9760A22C1EF3CB77007E3E5F /* libiconv.2.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libiconv.2.tbd; path = usr/lib/libiconv.2.tbd; sourceTree = SDKROOT; };
+		9760A22E1EF3CB7E007E3E5F /* libc++.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = "libc++.1.tbd"; path = "usr/lib/libc++.1.tbd"; sourceTree = SDKROOT; };
+		9760A2301EF3CB87007E3E5F /* libz.1.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.tbd; path = usr/lib/libz.1.tbd; sourceTree = SDKROOT; };
+		9760A2321EF3CB8E007E3E5F /* libbz2.1.0.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libbz2.1.0.tbd; path = usr/lib/libbz2.1.0.tbd; sourceTree = SDKROOT; };
+		9760A2341EF3CE96007E3E5F /* ZZPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPlayerModel.h; sourceTree = "<group>"; };
+		9760A2351EF3CE96007E3E5F /* ZZPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPlayerModel.m; sourceTree = "<group>"; };
+		9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_back@2x.png"; sourceTree = "<group>"; };
+		9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		979F6D701EF240F6005A0F68 /* ZZPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		979F6D741EF240F6005A0F68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		979F6D761EF240F6005A0F68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		979F6D771EF240F6005A0F68 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		979F6D791EF240F6005A0F68 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		979F6D7A1EF240F6005A0F68 /* ViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
+		979F6D7D1EF240F6005A0F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		979F6D7F1EF240F6005A0F68 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		979F6D821EF240F6005A0F68 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		979F6D841EF240F6005A0F68 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		979F6D961EF3B679005A0F68 /* ZZPlayerView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPlayerView.h; sourceTree = "<group>"; };
+		979F6D971EF3B679005A0F68 /* ZZPlayerView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPlayerView.m; sourceTree = "<group>"; };
+		B465A2E9C9E611E6E97A6B82 /* Pods-ZZPlayer.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-ZZPlayer.release.xcconfig"; path = "Pods/Target Support Files/Pods-ZZPlayer/Pods-ZZPlayer.release.xcconfig"; sourceTree = "<group>"; };
+		FABECA44B2EE0B4BD4696911 /* libPods-ZZPlayer.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-ZZPlayer.a"; sourceTree = BUILT_PRODUCTS_DIR; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		979F6D6D1EF240F6005A0F68 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9760A2331EF3CB8E007E3E5F /* libbz2.1.0.tbd in Frameworks */,
+				9760A23C1EF76171007E3E5F /* MobileVLCKit.framework in Frameworks */,
+				9760A2311EF3CB87007E3E5F /* libz.1.tbd in Frameworks */,
+				9760A22F1EF3CB7E007E3E5F /* libc++.1.tbd in Frameworks */,
+				9760A22D1EF3CB77007E3E5F /* libiconv.2.tbd in Frameworks */,
+				9760A22B1EF3CB6C007E3E5F /* libstdc++.6.0.9.tbd in Frameworks */,
+				9760A2291EF3CB65007E3E5F /* MediaPlayer.framework in Frameworks */,
+				9760A2271EF3CB5D007E3E5F /* AVFoundation.framework in Frameworks */,
+				9760A2251EF3CB54007E3E5F /* CoreAudio.framework in Frameworks */,
+				9760A2231EF3CB4D007E3E5F /* CoreMedia.framework in Frameworks */,
+				9760A2211EF3CB47007E3E5F /* AudioToolbox.framework in Frameworks */,
+				9760A21F1EF3CB3F007E3E5F /* VideoToolbox.framework in Frameworks */,
+				B1DFC1284645BE3ECCC2204E /* libPods-ZZPlayer.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		65B4A21C681AFCBCA4032BAC /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				043BDDD6F4AF4EBD379ECA8C /* Pods-ZZPlayer.debug.xcconfig */,
+				B465A2E9C9E611E6E97A6B82 /* Pods-ZZPlayer.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		979F6D671EF240F6005A0F68 = {
+			isa = PBXGroup;
+			children = (
+				979F6D721EF240F6005A0F68 /* ZZPlayer */,
+				979F6D711EF240F6005A0F68 /* Products */,
+				65B4A21C681AFCBCA4032BAC /* Pods */,
+				EAEA3760BD2A6E20DE77714A /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		979F6D711EF240F6005A0F68 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				979F6D701EF240F6005A0F68 /* ZZPlayer.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		979F6D721EF240F6005A0F68 /* ZZPlayer */ = {
+			isa = PBXGroup;
+			children = (
+				9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */,
+				9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */,
+				979F6D961EF3B679005A0F68 /* ZZPlayerView.h */,
+				979F6D971EF3B679005A0F68 /* ZZPlayerView.m */,
+				9760A2341EF3CE96007E3E5F /* ZZPlayerModel.h */,
+				9760A2351EF3CE96007E3E5F /* ZZPlayerModel.m */,
+				979F6D761EF240F6005A0F68 /* AppDelegate.h */,
+				979F6D771EF240F6005A0F68 /* AppDelegate.m */,
+				979F6D791EF240F6005A0F68 /* ViewController.h */,
+				979F6D7A1EF240F6005A0F68 /* ViewController.m */,
+				979F6D7C1EF240F6005A0F68 /* Main.storyboard */,
+				979F6D7F1EF240F6005A0F68 /* Assets.xcassets */,
+				979F6D811EF240F6005A0F68 /* LaunchScreen.storyboard */,
+				979F6D841EF240F6005A0F68 /* Info.plist */,
+				979F6D731EF240F6005A0F68 /* Supporting Files */,
+			);
+			path = ZZPlayer;
+			sourceTree = "<group>";
+		};
+		979F6D731EF240F6005A0F68 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				979F6D741EF240F6005A0F68 /* main.m */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		EAEA3760BD2A6E20DE77714A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9760A2321EF3CB8E007E3E5F /* libbz2.1.0.tbd */,
+				9760A2301EF3CB87007E3E5F /* libz.1.tbd */,
+				9760A22E1EF3CB7E007E3E5F /* libc++.1.tbd */,
+				9760A22C1EF3CB77007E3E5F /* libiconv.2.tbd */,
+				9760A22A1EF3CB6C007E3E5F /* libstdc++.6.0.9.tbd */,
+				9760A2281EF3CB65007E3E5F /* MediaPlayer.framework */,
+				9760A2261EF3CB5D007E3E5F /* AVFoundation.framework */,
+				9760A2241EF3CB54007E3E5F /* CoreAudio.framework */,
+				9760A2221EF3CB4D007E3E5F /* CoreMedia.framework */,
+				9760A2201EF3CB47007E3E5F /* AudioToolbox.framework */,
+				9760A21E1EF3CB3F007E3E5F /* VideoToolbox.framework */,
+				FABECA44B2EE0B4BD4696911 /* libPods-ZZPlayer.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		979F6D6F1EF240F6005A0F68 /* ZZPlayer */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 979F6D871EF240F6005A0F68 /* Build configuration list for PBXNativeTarget "ZZPlayer" */;
+			buildPhases = (
+				719B64EAFB23A1083F759CA3 /* [CP] Check Pods Manifest.lock */,
+				979F6D6C1EF240F6005A0F68 /* Sources */,
+				979F6D6D1EF240F6005A0F68 /* Frameworks */,
+				979F6D6E1EF240F6005A0F68 /* Resources */,
+				F1AD5408A8607F22CC8B8113 /* [CP] Embed Pods Frameworks */,
+				537E01D0914DE16C25AADDBF /* [CP] Copy Pods Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = ZZPlayer;
+			productName = ZZPlayer;
+			productReference = 979F6D701EF240F6005A0F68 /* ZZPlayer.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		979F6D681EF240F6005A0F68 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0800;
+				ORGANIZATIONNAME = lixiangzhou;
+				TargetAttributes = {
+					979F6D6F1EF240F6005A0F68 = {
+						CreatedOnToolsVersion = 8.0;
+						DevelopmentTeam = N33WL6ABHF;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 979F6D6B1EF240F6005A0F68 /* Build configuration list for PBXProject "ZZPlayer" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 979F6D671EF240F6005A0F68;
+			productRefGroup = 979F6D711EF240F6005A0F68 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				979F6D6F1EF240F6005A0F68 /* ZZPlayer */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		979F6D6E1EF240F6005A0F68 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				979F6D831EF240F6005A0F68 /* LaunchScreen.storyboard in Resources */,
+				979F6D801EF240F6005A0F68 /* Assets.xcassets in Resources */,
+				9760A23A1EF3E3E9007E3E5F /* zzplayer_back@2x.png in Resources */,
+				979F6D7E1EF240F6005A0F68 /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		537E01D0914DE16C25AADDBF /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZZPlayer/Pods-ZZPlayer-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		719B64EAFB23A1083F759CA3 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_ROOT}/../Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [[ $? != 0 ]] ; then\n    cat << EOM\nerror: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\nEOM\n    exit 1\nfi\n";
+			showEnvVarsInLog = 0;
+		};
+		F1AD5408A8607F22CC8B8113 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-ZZPlayer/Pods-ZZPlayer-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		979F6D6C1EF240F6005A0F68 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				9760A2361EF3CE96007E3E5F /* ZZPlayerModel.m in Sources */,
+				979F6D7B1EF240F6005A0F68 /* ViewController.m in Sources */,
+				979F6D981EF3B679005A0F68 /* ZZPlayerView.m in Sources */,
+				979F6D781EF240F6005A0F68 /* AppDelegate.m in Sources */,
+				979F6D751EF240F6005A0F68 /* main.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		979F6D7C1EF240F6005A0F68 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				979F6D7D1EF240F6005A0F68 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		979F6D811EF240F6005A0F68 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				979F6D821EF240F6005A0F68 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		979F6D851EF240F6005A0F68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		979F6D861EF240F6005A0F68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_SUSPICIOUS_MOVES = YES;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		979F6D881EF240F6005A0F68 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 043BDDD6F4AF4EBD379ECA8C /* Pods-ZZPlayer.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N33WL6ABHF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZZPlayer",
+				);
+				INFOPLIST_FILE = ZZPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zz.ZZPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		979F6D891EF240F6005A0F68 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = B465A2E9C9E611E6E97A6B82 /* Pods-ZZPlayer.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = N33WL6ABHF;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/ZZPlayer",
+				);
+				INFOPLIST_FILE = ZZPlayer/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				PRODUCT_BUNDLE_IDENTIFIER = com.zz.ZZPlayer;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		979F6D6B1EF240F6005A0F68 /* Build configuration list for PBXProject "ZZPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				979F6D851EF240F6005A0F68 /* Debug */,
+				979F6D861EF240F6005A0F68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		979F6D871EF240F6005A0F68 /* Build configuration list for PBXNativeTarget "ZZPlayer" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				979F6D881EF240F6005A0F68 /* Debug */,
+				979F6D891EF240F6005A0F68 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 979F6D681EF240F6005A0F68 /* Project object */;
+}
