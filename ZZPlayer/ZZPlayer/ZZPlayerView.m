@@ -34,6 +34,8 @@
 
 @property (nonatomic, strong) UIView *superView;
 @property (nonatomic, assign) CGRect originFrame;
+
+@property (nonatomic, assign) BOOL isPausedBeforeEnterBackground;
 @end
 
 @implementation ZZPlayerView
@@ -49,6 +51,8 @@
         [self setUI];
         
         [self layoutIfNeeded];
+        
+        [self addNotifications];
     }
     return self;
 }
@@ -92,6 +96,29 @@
     self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:nil];
     self.mediaPlayer.drawable = playerView;
     self.mediaPlayer.delegate = self;
+}
+
+- (void)dealloc {
+    [[NSNotificationCenter defaultCenter] removeObserver:self];
+}
+
+#pragma mark - 通知
+- (void)addNotifications {
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignActive:) name:UIApplicationWillResignActiveNotification object:nil];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(becomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+}
+
+- (void)resignActive:(NSNotification *)notification {
+    self.isPausedBeforeEnterBackground = self.mediaPlayer.isPlaying == NO;
+    if (self.mediaPlayer.isPlaying) {
+        [self.mediaPlayer pause];
+    }
+}
+
+- (void)becomeActive:(NSNotification *)notification {
+    if (self.isPausedBeforeEnterBackground == NO) {
+        [self.mediaPlayer play];
+    }
 }
 
 #pragma mark - UI
