@@ -31,13 +31,20 @@
 #import <Masonry/Masonry.h>
 #import "ZZPlayerModel.h"
 
+@class ZZPlayerView;
+
+@protocol ZZPlayerViewDelegate <NSObject>
+
+@optional
+- (void)playerViewDidClickBack:(ZZPlayerView *)playerView;
+
+@end
+
 @interface ZZPlayerView : UIView
 
-@property (nonatomic, assign) VLCRepeatMode repeatMode;
-@property (nonatomic, strong, readonly) NSArray<ZZPlayerModel *> *models;
+@property (nonatomic, weak) id<ZZPlayerViewDelegate> delegate;
+@property (nonatomic, strong) ZZPlayerModel *playerModel;
 
 - (void)play;
-
-- (void)addModel:(ZZPlayerModel *)model;
-
+- (void)rePlay;
 @end

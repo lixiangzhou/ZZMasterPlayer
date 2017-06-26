@@ -10,7 +10,7 @@
 #import "ZZPlayerView.h"
 
 @interface ViewController ()
-
+@property (nonatomic, weak) ZZPlayerView *playerView;
 @end
 
 @implementation ViewController
@@ -27,12 +27,27 @@
     
     ZZPlayerModel *model = [ZZPlayerModel new];
     model.title = @"这里是标题";
-    model.URLString = @"http://cdn1.bb-app.cn/f35e4dbb4e6a258a1496740615405.mp4?OSSAccessKeyId=9onpvIAMCEA8bWI7&Expires=1497607202&Signature=9yhm3vjabktJgkON5%2FXZLEM5OtQ%3D";
+    model.URLString = @"http://baobab.wdjcdn.com/14525705791193.mp4";
+
     
-    [playerView addModel:model];
+    playerView.playerModel = model;
     
     [playerView play];
+    
+    self.playerView = playerView;
+    
+    UIButton *replayBtn = [[UIButton alloc] init];
+    [replayBtn setTitleColor:[UIColor blueColor] forState:UIControlStateNormal];
+    [replayBtn setTitle:@"重播" forState:UIControlStateNormal];
+    [replayBtn addTarget:self action:@selector(replay) forControlEvents:UIControlEventTouchUpInside];
+    [self.view addSubview:replayBtn];
+    [replayBtn mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.center.equalTo(self.view);
+    }];
 }
 
+- (void)replay {
+    [self.playerView rePlay];
+}
 
 @end

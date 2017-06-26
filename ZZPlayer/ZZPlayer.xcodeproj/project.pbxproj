@@ -20,7 +20,12 @@
 		9760A2331EF3CB8E007E3E5F /* libbz2.1.0.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2321EF3CB8E007E3E5F /* libbz2.1.0.tbd */; };
 		9760A2361EF3CE96007E3E5F /* ZZPlayerModel.m in Sources */ = {isa = PBXBuildFile; fileRef = 9760A2351EF3CE96007E3E5F /* ZZPlayerModel.m */; };
 		9760A23A1EF3E3E9007E3E5F /* zzplayer_back@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */; };
-		9760A23C1EF76171007E3E5F /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */; };
+		9760A23F1EF767EF007E3E5F /* zzplayer_pause@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A23D1EF767EF007E3E5F /* zzplayer_pause@2x.png */; };
+		9760A2401EF767EF007E3E5F /* zzplayer_play@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A23E1EF767EF007E3E5F /* zzplayer_play@2x.png */; };
+		9760A2421EF76CE1007E3E5F /* zzplayer_progress_dot@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A2411EF76CE1007E3E5F /* zzplayer_progress_dot@2x.png */; };
+		9760A2461EF76FE2007E3E5F /* zzplayer_full@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A2431EF76FE2007E3E5F /* zzplayer_full@2x.png */; };
+		9760A2481EF76FE2007E3E5F /* zzplayer_unfull@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 9760A2451EF76FE2007E3E5F /* zzplayer_unfull@2x.png */; };
+		9760A24A1EF8C605007E3E5F /* MobileVLCKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9760A2491EF8C605007E3E5F /* MobileVLCKit.framework */; };
 		979F6D751EF240F6005A0F68 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D741EF240F6005A0F68 /* main.m */; };
 		979F6D781EF240F6005A0F68 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D771EF240F6005A0F68 /* AppDelegate.m */; };
 		979F6D7B1EF240F6005A0F68 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 979F6D7A1EF240F6005A0F68 /* ViewController.m */; };
@@ -47,7 +52,12 @@
 		9760A2341EF3CE96007E3E5F /* ZZPlayerModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZZPlayerModel.h; sourceTree = "<group>"; };
 		9760A2351EF3CE96007E3E5F /* ZZPlayerModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZZPlayerModel.m; sourceTree = "<group>"; };
 		9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_back@2x.png"; sourceTree = "<group>"; };
-		9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
+		9760A23D1EF767EF007E3E5F /* zzplayer_pause@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_pause@2x.png"; sourceTree = "<group>"; };
+		9760A23E1EF767EF007E3E5F /* zzplayer_play@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_play@2x.png"; sourceTree = "<group>"; };
+		9760A2411EF76CE1007E3E5F /* zzplayer_progress_dot@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_progress_dot@2x.png"; sourceTree = "<group>"; };
+		9760A2431EF76FE2007E3E5F /* zzplayer_full@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_full@2x.png"; sourceTree = "<group>"; };
+		9760A2451EF76FE2007E3E5F /* zzplayer_unfull@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "zzplayer_unfull@2x.png"; sourceTree = "<group>"; };
+		9760A2491EF8C605007E3E5F /* MobileVLCKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MobileVLCKit.framework; sourceTree = "<group>"; };
 		979F6D701EF240F6005A0F68 /* ZZPlayer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ZZPlayer.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		979F6D741EF240F6005A0F68 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		979F6D761EF240F6005A0F68 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
@@ -70,7 +80,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9760A2331EF3CB8E007E3E5F /* libbz2.1.0.tbd in Frameworks */,
-				9760A23C1EF76171007E3E5F /* MobileVLCKit.framework in Frameworks */,
+				9760A24A1EF8C605007E3E5F /* MobileVLCKit.framework in Frameworks */,
 				9760A2311EF3CB87007E3E5F /* libz.1.tbd in Frameworks */,
 				9760A22F1EF3CB7E007E3E5F /* libc++.1.tbd in Frameworks */,
 				9760A22D1EF3CB77007E3E5F /* libiconv.2.tbd in Frameworks */,
@@ -118,8 +128,13 @@
 		979F6D721EF240F6005A0F68 /* ZZPlayer */ = {
 			isa = PBXGroup;
 			children = (
-				9760A23B1EF76171007E3E5F /* MobileVLCKit.framework */,
+				9760A2491EF8C605007E3E5F /* MobileVLCKit.framework */,
 				9760A2391EF3E3E9007E3E5F /* zzplayer_back@2x.png */,
+				9760A23D1EF767EF007E3E5F /* zzplayer_pause@2x.png */,
+				9760A23E1EF767EF007E3E5F /* zzplayer_play@2x.png */,
+				9760A2411EF76CE1007E3E5F /* zzplayer_progress_dot@2x.png */,
+				9760A2431EF76FE2007E3E5F /* zzplayer_full@2x.png */,
+				9760A2451EF76FE2007E3E5F /* zzplayer_unfull@2x.png */,
 				979F6D961EF3B679005A0F68 /* ZZPlayerView.h */,
 				979F6D971EF3B679005A0F68 /* ZZPlayerView.m */,
 				9760A2341EF3CE96007E3E5F /* ZZPlayerModel.h */,
@@ -228,8 +243,13 @@
 			files = (
 				979F6D831EF240F6005A0F68 /* LaunchScreen.storyboard in Resources */,
 				979F6D801EF240F6005A0F68 /* Assets.xcassets in Resources */,
+				9760A2421EF76CE1007E3E5F /* zzplayer_progress_dot@2x.png in Resources */,
+				9760A23F1EF767EF007E3E5F /* zzplayer_pause@2x.png in Resources */,
+				9760A2461EF76FE2007E3E5F /* zzplayer_full@2x.png in Resources */,
 				9760A23A1EF3E3E9007E3E5F /* zzplayer_back@2x.png in Resources */,
 				979F6D7E1EF240F6005A0F68 /* Main.storyboard in Resources */,
+				9760A2401EF767EF007E3E5F /* zzplayer_play@2x.png in Resources */,
+				9760A2481EF76FE2007E3E5F /* zzplayer_unfull@2x.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
