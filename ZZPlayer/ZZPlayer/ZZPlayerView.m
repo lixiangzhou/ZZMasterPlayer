@@ -363,11 +363,11 @@
 }
 
 - (void)tapVideoScreen:(UITapGestureRecognizer *)gesture {
-//    if (self.hasShowControl == YES) {
-//        [self hideControl];
-//    } else {
-//        [self showControl];
-//    }
+    if (self.hasShowControl == YES) {
+        [self hideControl];
+    } else {
+        [self showControl];
+    }
 }
 
 - (void)tapTop:(UITapGestureRecognizer *)gesture {
