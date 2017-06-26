@@ -32,6 +32,8 @@
 
 @property (nonatomic, assign) BOOL hasShowControl;
 
+@property (nonatomic, strong) UIView *superView;
+@property (nonatomic, assign) CGRect originFrame;
 @end
 
 @implementation ZZPlayerView
@@ -58,6 +60,16 @@
     self.bottomGradientLayer.frame = self.bottomView.bounds;
 }
 
+- (void)willMoveToSuperview:(UIView *)newSuperview {
+    [super willMoveToSuperview:newSuperview];
+    
+    if (![newSuperview isKindOfClass:[UIWindow class]]) {
+        self.superView = newSuperview;
+        self.originFrame = self.frame;
+    }
+    
+}
+
 - (void)resetPlayer {
     [self.mediaPlayer stop];
     self.mediaPlayer.delegate = nil;
@@ -66,7 +78,6 @@
     [self.playerView removeFromSuperview];
     
     UIView *playerView = [UIView new];
-    playerView.userInteractionEnabled = NO;
     [self insertSubview:playerView atIndex:0];
     self.playerView = playerView;
     
@@ -85,8 +96,6 @@
 
 #pragma mark - UI
 - (void)setUI {
-    [self addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoScreen:)]];
-    
     [self setControl];
     [self setTop];
     [self setBottom];
@@ -97,6 +106,8 @@
     [self addSubview:controlView];
     self.controlView = controlView;
     
+    [controlView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapVideoScreen:)]];
+    
     [controlView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.edges.equalTo(self);
     }];
@@ -106,7 +117,7 @@
     UIView *topView = [UIView new];
     [self.controlView addSubview:topView];
     self.topView = topView;
-    [topView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTop:)]];
+    [topView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:nil action:@selector(tapTop:)]];
     
     // 渐变层
     self.topGradientLayer = [self addGradientLayerToView:topView colors:@[
@@ -149,7 +160,7 @@
     UIView *bottomView = [UIView new];
     [self.controlView addSubview:bottomView];
     self.bottomView = bottomView;
-    [bottomView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBottom:)]];
+    [bottomView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:nil action:@selector(tapBottom:)]];
     
     // 渐变层
     self.bottomGradientLayer = [self addGradientLayerToView:bottomView colors:@[
@@ -352,8 +363,25 @@
 }
 
 - (void)fullScreenAction {
-    self.playerModel = self.playerModel;
     [self showControl];
+    
+    BOOL isFullScreen = [UIApplication sharedApplication].statusBarOrientation != UIDeviceOrientationPortrait;
+    if (isFullScreen) {
+        [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
+        [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
+        
+        self.frame = self.originFrame;
+        [self.superView addSubview:self];
+    } else {
+        
+        [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeRight) forKey:@"orientation"];
+        [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeRight;
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo([UIApplication sharedApplication].keyWindow);
+        }];
+    }
 }
 
 - (void)backAction {
@@ -383,7 +411,8 @@
     }
     
     [UIView animateWithDuration:ZZPlayerViewAnimationDuration animations:^{
-        self.controlView.alpha = 1;
+        self.topView.alpha = 1;
+        self.bottomView.alpha = 1;
     } completion:^(BOOL finished) {
         self.hasShowControl = YES;
         [self autoHideControl];
@@ -396,7 +425,8 @@
     }
     
     [UIView animateWithDuration:ZZPlayerViewAnimationDuration animations:^{
-        self.controlView.alpha = 0;
+        self.topView.alpha = 0;
+        self.bottomView.alpha = 0;
     } completion:^(BOOL finished) {
         self.hasShowControl = NO;
     }];

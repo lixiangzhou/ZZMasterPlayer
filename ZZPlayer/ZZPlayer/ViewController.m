@@ -19,11 +19,17 @@
     [super viewDidLoad];
     
     CGFloat width = self.view.bounds.size.width;
+    CGFloat height = self.view.bounds.size.height;
     
-    ZZPlayerView *playerView = [[ZZPlayerView alloc] initWithFrame:CGRectMake(0, 50, width, 9.0 / 16 * width)];
+    ZZPlayerView *playerView = [[ZZPlayerView alloc] init];
     playerView.backgroundColor = [UIColor blueColor];
     
     [self.view addSubview:playerView];
+    
+    [playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.width.equalTo(@(width));
+        make.height.equalTo(@(width * width / height));
+    }];
     
     ZZPlayerModel *model = [ZZPlayerModel new];
     model.title = @"这里是标题";
