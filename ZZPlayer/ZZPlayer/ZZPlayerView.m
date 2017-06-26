@@ -74,30 +74,6 @@
     
 }
 
-- (void)resetPlayer {
-    [self.mediaPlayer stop];
-    self.mediaPlayer.delegate = nil;
-    self.mediaPlayer.drawable = nil;
-    self.mediaPlayer = nil;
-    [self.playerView removeFromSuperview];
-    
-    UIView *playerView = [UIView new];
-    [self insertSubview:playerView atIndex:0];
-    self.playerView = playerView;
-    
-    [playerView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.edges.equalTo(self);
-    }];
-    
-    self.startTimeLabel.text = @"00:00";
-    self.endTimeLabel.text = @"00:00";
-    
-    
-    self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:nil];
-    self.mediaPlayer.drawable = playerView;
-    self.mediaPlayer.delegate = self;
-}
-
 - (void)dealloc {
     [[NSNotificationCenter defaultCenter] removeObserver:self];
 }
@@ -110,21 +86,27 @@
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
+#pragma mark 前后台切换
 - (void)resignActive:(NSNotification *)notification {
     self.isPausedBeforeEnterBackground = self.mediaPlayer.isPlaying == NO;
     if (self.mediaPlayer.isPlaying) {
-        [self.mediaPlayer pause];
+        [self pauseState];
     }
 }
 
 - (void)becomeActive:(NSNotification *)notification {
     if (self.isPausedBeforeEnterBackground == NO) {
-        [self.mediaPlayer play];
+        [self playState];
     }
 }
 
+#pragma mark 屏幕旋转
 - (void)orientationDidChange:(NSNotification *)notification {
     UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    [self toOrientation:orientation];
+}
+
+- (void)toOrientation:(UIDeviceOrientation)orientation {
     if (orientation == UIDeviceOrientationPortrait) {
         
         [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
@@ -132,8 +114,9 @@
         
         self.frame = self.originFrame;
         [self.superView addSubview:self];
-    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
         
+        self.fullBtn.selected = YES;
+    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
         [[UIDevice currentDevice] setValue:@(orientation) forKey:@"orientation"];
         [UIApplication sharedApplication].statusBarOrientation = orientation == UIDeviceOrientationLandscapeRight ? UIInterfaceOrientationLandscapeRight : UIInterfaceOrientationLandscapeLeft;
         
@@ -144,10 +127,9 @@
         }];
         
         [self layoutIfNeeded];
-    } else {
         
+        self.fullBtn.selected = NO;
     }
-    
 }
 
 #pragma mark - UI
@@ -173,7 +155,7 @@
     UIView *topView = [UIView new];
     [self.controlView addSubview:topView];
     self.topView = topView;
-    [topView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:nil action:@selector(tapTop:)]];
+    [topView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapTop:)]];
     
     // 渐变层
     self.topGradientLayer = [self addGradientLayerToView:topView colors:@[
@@ -216,7 +198,7 @@
     UIView *bottomView = [UIView new];
     [self.controlView addSubview:bottomView];
     self.bottomView = bottomView;
-    [bottomView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:nil action:@selector(tapBottom:)]];
+    [bottomView addGestureRecognizer:[[UITapGestureRecognizer alloc] initWithTarget:self action:@selector(tapBottom:)]];
     
     // 渐变层
     self.bottomGradientLayer = [self addGradientLayerToView:bottomView colors:@[
@@ -390,12 +372,20 @@
     [self showControl];
     
     if (self.mediaPlayer.isPlaying) {
-        [self.mediaPlayer pause];
-        self.playBtn.selected = YES;
+        [self pauseState];
     } else {
-        [self.mediaPlayer play];
-        self.playBtn.selected = NO;
+        [self playState];
     }
+}
+
+- (void)playState {
+    [self.mediaPlayer play];
+    self.playBtn.selected = NO;
+}
+
+- (void)pauseState {
+    [self.mediaPlayer pause];
+    self.playBtn.selected = YES;
 }
 
 - (void)sliderBegin {
@@ -423,19 +413,9 @@
     
     BOOL isFullScreen = [UIApplication sharedApplication].statusBarOrientation != UIDeviceOrientationPortrait;
     if (isFullScreen) {
-        [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
-        [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
-        
-        self.frame = self.originFrame;
-        [self.superView addSubview:self];
+        [self toOrientation:UIDeviceOrientationPortrait];
     } else {
-        [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeRight) forKey:@"orientation"];
-        [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeRight;
-
-        [[UIApplication sharedApplication].keyWindow addSubview:self];
-        [self mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.edges.equalTo([UIApplication sharedApplication].keyWindow);
-        }];
+        [self toOrientation:UIDeviceOrientationLandscapeRight];
     }
 }
 
@@ -454,16 +434,16 @@
 }
 
 - (void)tapTop:(UITapGestureRecognizer *)gesture {
+    [self showControl];
 }
 
 - (void)tapBottom:(UITapGestureRecognizer *)gesture {
+    [self showControl];
 }
 
 #pragma mark - Control hide / show
 - (void)showControl {
-    if (self.hasShowControl == YES) {
-        return;
-    }
+    [NSObject cancelPreviousPerformRequestsWithTarget:self selector:@selector(hideControl) object:nil];
     
     [UIView animateWithDuration:ZZPlayerViewAnimationDuration animations:^{
         self.topView.alpha = 1;
@@ -527,6 +507,30 @@
     gradientLayer.colors = colors;
     [toView.layer addSublayer:gradientLayer];
     return gradientLayer;
+}
+
+- (void)resetPlayer {
+    [self.mediaPlayer stop];
+    self.mediaPlayer.delegate = nil;
+    self.mediaPlayer.drawable = nil;
+    self.mediaPlayer = nil;
+    [self.playerView removeFromSuperview];
+    
+    UIView *playerView = [UIView new];
+    [self insertSubview:playerView atIndex:0];
+    self.playerView = playerView;
+    
+    [playerView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
+    
+    self.startTimeLabel.text = @"00:00";
+    self.endTimeLabel.text = @"00:00";
+    
+    
+    self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:nil];
+    self.mediaPlayer.drawable = playerView;
+    self.mediaPlayer.delegate = self;
 }
 
 // 单位秒
