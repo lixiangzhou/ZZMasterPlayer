@@ -52,6 +52,10 @@
     }];
 }
 
+- (UIStatusBarStyle)preferredStatusBarStyle {
+    return UIStatusBarStyleLightContent;
+}
+
 - (void)replay {
     [self.playerView rePlay];
 }

@@ -106,6 +106,8 @@
 - (void)addNotifications {
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(resignActive:) name:UIApplicationWillResignActiveNotification object:nil];
     [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(becomeActive:) name:UIApplicationDidBecomeActiveNotification object:nil];
+    
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(orientationDidChange:) name:UIDeviceOrientationDidChangeNotification object:nil];
 }
 
 - (void)resignActive:(NSNotification *)notification {
@@ -119,6 +121,33 @@
     if (self.isPausedBeforeEnterBackground == NO) {
         [self.mediaPlayer play];
     }
+}
+
+- (void)orientationDidChange:(NSNotification *)notification {
+    UIDeviceOrientation orientation = [UIDevice currentDevice].orientation;
+    if (orientation == UIDeviceOrientationPortrait) {
+        
+        [[UIDevice currentDevice] setValue:@(UIDeviceOrientationPortrait) forKey:@"orientation"];
+        [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationPortrait;
+        
+        self.frame = self.originFrame;
+        [self.superView addSubview:self];
+    } else if (orientation == UIDeviceOrientationLandscapeRight || orientation == UIDeviceOrientationLandscapeLeft) {
+        
+        [[UIDevice currentDevice] setValue:@(orientation) forKey:@"orientation"];
+        [UIApplication sharedApplication].statusBarOrientation = orientation == UIDeviceOrientationLandscapeRight ? UIInterfaceOrientationLandscapeRight : UIInterfaceOrientationLandscapeLeft;
+        
+        [[UIApplication sharedApplication].keyWindow addSubview:self];
+        
+        [self mas_makeConstraints:^(MASConstraintMaker *make) {
+            make.edges.equalTo([UIApplication sharedApplication].keyWindow);
+        }];
+        
+        [self layoutIfNeeded];
+    } else {
+        
+    }
+    
 }
 
 #pragma mark - UI
@@ -400,10 +429,9 @@
         self.frame = self.originFrame;
         [self.superView addSubview:self];
     } else {
-        
         [[UIDevice currentDevice] setValue:@(UIDeviceOrientationLandscapeRight) forKey:@"orientation"];
         [UIApplication sharedApplication].statusBarOrientation = UIInterfaceOrientationLandscapeRight;
-        
+
         [[UIApplication sharedApplication].keyWindow addSubview:self];
         [self mas_makeConstraints:^(MASConstraintMaker *make) {
             make.edges.equalTo([UIApplication sharedApplication].keyWindow);
