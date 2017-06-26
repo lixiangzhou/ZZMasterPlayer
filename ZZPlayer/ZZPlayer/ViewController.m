@@ -22,7 +22,6 @@
     CGFloat height = self.view.bounds.size.height;
     
     ZZPlayerView *playerView = [[ZZPlayerView alloc] init];
-    playerView.backgroundColor = [UIColor blueColor];
     
     [self.view addSubview:playerView];
     

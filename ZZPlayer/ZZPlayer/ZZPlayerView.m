@@ -13,8 +13,11 @@
 
 @interface ZZPlayerView () <VLCMediaPlayerDelegate>
 @property (nonatomic, strong) VLCMediaPlayer *mediaPlayer;
+
 @property (nonatomic, weak) UIView *playerView;
 @property (nonatomic, weak) UIView *controlView;
+
+@property (nonatomic, weak) UIImageView *backgroundView;
 
 @property (nonatomic, weak) UIView *topView;
 @property (nonatomic, weak) UIButton *backBtn;
@@ -35,6 +38,7 @@
 @property (nonatomic, strong) UIView *superView;
 @property (nonatomic, assign) CGRect originFrame;
 
+/// 进入后台时是否正在播放
 @property (nonatomic, assign) BOOL isPausedBeforeEnterBackground;
 @end
 
@@ -44,11 +48,11 @@
 {
     self = [super initWithFrame:frame];
     if (self) {
-        [self resetPlayer];
-        
         self.hasShowControl = YES;
         
         [self setUI];
+        
+        [self resetPlayer];
         
         [self layoutIfNeeded];
         
@@ -134,9 +138,21 @@
 
 #pragma mark - UI
 - (void)setUI {
+    self.backgroundColor = [UIColor blackColor];
+    [self setBackground];
     [self setControl];
     [self setTop];
     [self setBottom];
+}
+
+- (void)setBackground {
+    UIImageView *backgroundView = [UIImageView new];
+    [self addSubview:backgroundView];
+    self.backgroundView = backgroundView;
+    
+    [backgroundView mas_makeConstraints:^(MASConstraintMaker *make) {
+        make.edges.equalTo(self);
+    }];
 }
 
 - (void)setControl {
@@ -302,36 +318,43 @@
         case VLCMediaPlayerStateOpening:
         {
             NSLog(@"VLCMediaPlayerStateOpening");
+            [self stateOpening];
             break;
         }
         case VLCMediaPlayerStateStopped:    // 当个视频播放器没有该功能
         {
             NSLog(@"VLCMediaPlayerStateStopped");
+            [self stateStopped];
             break;
         }
         case VLCMediaPlayerStateBuffering:
         {
             NSLog(@"VLCMediaPlayerStateBuffering");
+            [self stateBuffering];
             break;
         }
         case VLCMediaPlayerStatePlaying:
         {
             NSLog(@"VLCMediaPlayerStatePlaying");
+            [self statePlaying];
             break;
         }
         case VLCMediaPlayerStatePaused:
         {
             NSLog(@"VLCMediaPlayerStatePaused");
+            [self statePaused];
             break;
         }
         case VLCMediaPlayerStateError:
         {
             NSLog(@"VLCMediaPlayerStateError");
+            [self stateError];
             break;
         }
         case VLCMediaPlayerStateEnded:
         {
             NSLog(@"VLCMediaPlayerStateEnded");
+            [self stateEnded];
             break;
         }
     }
@@ -343,7 +366,7 @@
 }
 
 - (void)stateStopped {
-    
+    [self resetPlayer];
 }
 
 - (void)stateBuffering {
@@ -488,6 +511,8 @@
     
     VLCMedia *media = [VLCMedia mediaWithURL:[NSURL URLWithString:playerModel.URLString]];
     self.mediaPlayer.media = media;
+    
+    [self.backgroundView sd_setImageWithURL:[NSURL URLWithString:playerModel.backgroundURLString] placeholderImage:nil];
 }
 
 - (void)play {
@@ -501,12 +526,8 @@
     [self.mediaPlayer play];
 }
 
-#pragma mark - Helper
-- (CAGradientLayer *)addGradientLayerToView:(UIView *)toView colors:(NSArray *)colors {
-    CAGradientLayer *gradientLayer = [CAGradientLayer new];
-    gradientLayer.colors = colors;
-    [toView.layer addSublayer:gradientLayer];
-    return gradientLayer;
+- (void)pause {
+    [self pauseState];
 }
 
 - (void)resetPlayer {
@@ -517,7 +538,7 @@
     [self.playerView removeFromSuperview];
     
     UIView *playerView = [UIView new];
-    [self insertSubview:playerView atIndex:0];
+    [self insertSubview:playerView aboveSubview:self.backgroundView];
     self.playerView = playerView;
     
     [playerView mas_makeConstraints:^(MASConstraintMaker *make) {
@@ -526,11 +547,19 @@
     
     self.startTimeLabel.text = @"00:00";
     self.endTimeLabel.text = @"00:00";
-    
+    self.progressSlider.value = 0;
     
     self.mediaPlayer = [[VLCMediaPlayer alloc] initWithOptions:nil];
     self.mediaPlayer.drawable = playerView;
     self.mediaPlayer.delegate = self;
+}
+
+#pragma mark - Helper
+- (CAGradientLayer *)addGradientLayerToView:(UIView *)toView colors:(NSArray *)colors {
+    CAGradientLayer *gradientLayer = [CAGradientLayer new];
+    gradientLayer.colors = colors;
+    [toView.layer addSublayer:gradientLayer];
+    return gradientLayer;
 }
 
 // 单位秒

@@ -7,7 +7,7 @@
 //
 
 /*
- 
+ 下载 MobileVLCKit.framework 并添加到项目中
  MobileVLCKit.framework 依赖的框架如下：
  
  VideoToolbox.framework
@@ -29,6 +29,7 @@
 #import <UIKit/UIKit.h>
 #import <MobileVLCKit/MobileVLCKit.h>
 #import <Masonry/Masonry.h>
+#import <SDWebImage/UIImageView+WebCache.h>
 #import "ZZPlayerModel.h"
 
 @class ZZPlayerView;
@@ -43,8 +44,15 @@
 @interface ZZPlayerView : UIView
 
 @property (nonatomic, weak) id<ZZPlayerViewDelegate> delegate;
+/// 视频模型
 @property (nonatomic, strong) ZZPlayerModel *playerModel;
 
+/// 播放视频
 - (void)play;
+/// 重置并重新播放视频
 - (void)rePlay;
+/// 暂停视频播放
+- (void)pause;
+/// 重置播放器
+- (void)resetPlayer;
 @end

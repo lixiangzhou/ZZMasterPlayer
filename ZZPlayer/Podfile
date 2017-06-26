@@ -8,5 +8,6 @@ target 'ZZPlayer' do
   # Pods for ZZPlayer
 pod 'Masonry'
 #pod 'MobileVLCKit'
+pod 'SDWebImage'
 
 end

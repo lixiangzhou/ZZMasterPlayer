@@ -11,4 +11,5 @@
 @interface ZZPlayerModel : NSObject
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *URLString;
+@property (nonatomic, copy) NSString *backgroundURLString;
 @end
